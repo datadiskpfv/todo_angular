@@ -1,12 +1,15 @@
-<div *ngIf="invalidLogin">
-  <small>{{errorMessage}}</small>
+<h1>Login</h1>
+<div class="container py-2">
+  <div class="alert alert-warning" *ngIf="invalidLogin">
+    <small>{{errorMessage}}</small>
+  </div>
+  <div>
+    User Name: <input type="text" name="username" [(ngModel)]="username">
+    Password: <input type="password" name="password" [(ngModel)]="password">
+
+
+    <button class="btn btn-success mx-2"(click)="handleLogin()">Login</button>
+  </div>
+
+  <div>User Name (updated): {{username}}</div>
 </div>
-
-User Name: <input type="text" name="username" [(ngModel)]="username">
-Password: <input type="password" name="password" [(ngModel)]="password">
-
-
-<button (click)="handleLogin()">Login</button>
-
-<div><br>User Name (updated): {{username}}</div>
-

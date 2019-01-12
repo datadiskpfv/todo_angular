@@ -1,18 +1,22 @@
-<table border="1">
-  <caption>
-    My Todo's
-  </caption>
-  <thead>
+<h1>My Todo's</h1>
+<div class="container py-2">
+  <table border="1" class="table table-striped">
+    <thead>
     <tr>
       <th>ID</th>
       <th>Description</th>
+      <th>Target Date</th>
+      <th>is Completed?</th>
     </tr>
-  </thead>
-  <tbody>
-  <!-- for (Todo todo : todos){}  the Java way -->
-     <tr *ngFor="let todo of todos">
-       <td>{{todo.id}}</td>
-       <td>{{todo.description}}</td>
-     </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <!-- for (Todo todo : todos){}  the Java way -->
+    <tr *ngFor="let todo of todos">
+      <td>{{todo.id}}</td>
+      <td>{{todo.description}}</td>
+      <td>{{todo.targetDate | date | uppercase}}</td>
+      <td>{{todo.done}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
