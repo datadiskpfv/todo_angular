@@ -1,0 +1,18 @@
+<table border="1">
+  <caption>
+    My Todo's
+  </caption>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <!-- for (Todo todo : todos){}  the Java way -->
+     <tr *ngFor="let todo of todos">
+       <td>{{todo.id}}</td>
+       <td>{{todo.description}}</td>
+     </tr>
+  </tbody>
+</table>
