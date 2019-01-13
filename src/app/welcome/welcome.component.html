@@ -13,4 +13,14 @@
     Click here to get a customized welcome message
     <button (click)="getWelcomeMessage()" class="btn btn-outline-success">Get welcome message</button>
   </div>
+
+  <div class="container" *ngIf="welcomeMessageFromService">
+    <h2>Your customized welcome message</h2>
+    {{welcomeMessageFromService}}
+  </div>
+
+  <div>
+    Click here to get a customized welcome message with parameter
+    <button (click)="getWelcomeMessageWithParameter()" class="btn btn-outline-success">Get welcome message with parameter</button>
+  </div>
 </div>
