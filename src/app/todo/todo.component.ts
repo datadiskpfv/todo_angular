@@ -19,11 +19,13 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // used to get parameters from URI
     this.id = this.route.snapshot.params['id'];
 
-    // The below is used because we are using asynchronus service, so you need a blank Todo
+    // The below is used because we are using asynchronous service, so you need a blank Todo
     this.todo = new Todo(1, '', false, new Date());
 
+    // todoService accesses the Spring Boot application
     this.todoService.retrieveTodo('pvalle', this.id)
       .subscribe(
         data => this.todo = data
