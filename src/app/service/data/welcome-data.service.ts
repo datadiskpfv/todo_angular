@@ -4,7 +4,9 @@ import {HttpClient} from '@angular/common/http';
 @Injectable({providedIn: 'root'})
 export class WelcomeDataService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   executeHelloWorldBeanService() {
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
@@ -17,7 +19,7 @@ export class WelcomeDataService {
 }
 
 export class HelloWorldBean {
-  constructor(public message: string) { }
+  constructor(
+    public message: string
+  ) { }
 }
-
-

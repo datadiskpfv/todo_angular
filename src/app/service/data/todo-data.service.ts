@@ -9,12 +9,15 @@ export class TodoDataService {
 
   constructor(private http: HttpClient) { }
 
-  retrieveAllTodos(username) {
-    return this.http.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
+  // CRUD operations
+  createTodo(username, todo) {
+
+    // the todo object will be added to the body of the request
+    return this.http.post<Todo>(`http://localhost:8080/users/${username}/todos`, todo);
   }
 
-  deleteTodo(username, id) {
-    return this.http.delete(`http://localhost:8080/users/${username}/todos/${id}`);
+  retrieveAllTodos(username) {
+    return this.http.get<Todo[]>(`http://localhost:8080/users/${username}/todos`);
   }
 
   retrieveTodo(username, id) {
@@ -25,7 +28,7 @@ export class TodoDataService {
     return this.http.put<Todo>(`http://localhost:8080/users/${username}/todos/${id}`, todo);
   }
 
-  createTodo(username, todo) {
-    return this.http.post<Todo>(`http://localhost:8080/users/${username}/todos`, todo);
+  deleteTodo(username, id) {
+    return this.http.delete(`http://localhost:8080/users/${username}/todos/${id}`);
   }
 }

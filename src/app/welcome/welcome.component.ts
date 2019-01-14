@@ -14,7 +14,10 @@ export class WelcomeComponent implements OnInit {
   welcomeMessageFromService: string;
 
   // ActivatedRoute - dependency injection
-  constructor(private route: ActivatedRoute, private service: WelcomeDataService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private service: WelcomeDataService
+  ) { }
 
   ngOnInit() {
     // console.log(this.route.snapshot.params['name']);
@@ -24,7 +27,8 @@ export class WelcomeComponent implements OnInit {
   getWelcomeMessage() {
     console.log(this.service.executeHelloWorldBeanService());
 
-    this.service.executeHelloWorldBeanService().subscribe(
+    this.service.executeHelloWorldBeanService()
+      .subscribe (
       response => this.handleSuccessfulResponse(response),
       error => this.handleErrorResponse(error)
     );
@@ -35,7 +39,8 @@ export class WelcomeComponent implements OnInit {
   getWelcomeMessageWithParameter() {
     // console.log(this.service.executeHelloWorldBeanService());
 
-    this.service.executeHelloWorldServiceWithPathVariable(this.name).subscribe(
+    this.service.executeHelloWorldServiceWithPathVariable(this.name)
+      .subscribe (
       response => this.handleSuccessfulResponse(response),
       error => this.handleErrorResponse(error)
     );
