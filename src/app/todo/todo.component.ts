@@ -39,6 +39,7 @@ export class TodoComponent implements OnInit {
   saveTodo() {
     if (this.id === -1 ) {
       // Create Todo
+      console.log('Creating new Todo');
       this.todoService.createTodo('pvalle', this.todo)
         .subscribe(
           data => {
@@ -47,6 +48,7 @@ export class TodoComponent implements OnInit {
           }
         );
     } else {
+      console.log('Updating existing Todo');
       this.todoService.updateTodo('pvalle', this.id, this.todo)
         .subscribe(
           data =>  {
