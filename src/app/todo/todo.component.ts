@@ -28,7 +28,7 @@ export class TodoComponent implements OnInit {
 
     // todoService accesses the Spring Boot application
     if (this.id != -1 ) {
-      console.log('should ony see this on postive numbers');
+      console.log('should ony see this on positive numbers');
       this.todoService.retrieveTodo('pvalle', this.id)
         .subscribe(
           data => this.todo = data
@@ -37,7 +37,7 @@ export class TodoComponent implements OnInit {
   }
 
   saveTodo() {
-    if (this.id === -1 ) {
+    if (this.id == -1 ) {
       // Create Todo
       console.log('Creating new Todo');
       this.todoService.createTodo('pvalle', this.todo)
