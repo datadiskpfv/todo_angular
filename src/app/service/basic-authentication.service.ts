@@ -10,7 +10,8 @@ export class BasicAuthenticationService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   // authenticate(username, password) {
   //   // console.log('before: ' + this.isUserLoggedIn());
@@ -44,6 +45,24 @@ export class BasicAuthenticationService {
     );
   }
 
+  executeJWTAuthenticationService(username, password) {
+
+    return this.http.post<any>(
+      `${API_URL}/authenticate`,
+      {
+        username,
+        password
+      }).pipe(         // if successful use pipe on the observable to add a session attribute
+      map(
+        data => {
+          sessionStorage.setItem('authenticaterUser', username);
+          sessionStorage.setItem('token', `Bearer ${data.token}`);
+          return data;
+        }
+      )
+    );
+  }
+
   getAuthenticatedUser() {
     return sessionStorage.getItem('authenticaterUser');
   }
@@ -66,5 +85,6 @@ export class BasicAuthenticationService {
 }
 
 export class AuthenticationBean {
-  constructor(public message: string) {}
+  constructor(public message: string) {
+  }
 }
